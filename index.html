@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>bit-academy</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/css/foundation.min.css">
+  <!-- Include Chart.js library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <!-- Nav Bar -->
+  <nav class="top-bar">
+    <div class="top-bar-left">
+      <ul class="menu">
+        <li class="menu-text"><img src="bit.svg" alt="" width="100" height="50"></li>
+      </ul>
+    </div>
+    <div class="top-bar-right">
+      <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">universe</a></li>
+        <li><a href="#">badges</a></li>
+        <li><a href="#">meer</a></li>
+        <li><a href="#">login</a></li>
+
+      </ul>
+    </div>
+  </nav>
+  <div class="grid-container">
+    <div class="grid-x grid-margin-x">
+      <div class="cell small-10 medium-5">
+        <h1>Line Graph</h1>
+        <canvas id="lineChart" width="400" height="200"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-container">
+    <div class="grid-x grid-margin-x">
+      <div class="cell small-10 medium-5">
+        <h1>Stats</h1>
+        <canvas id="barChart" width="400" height="200"></canvas>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/js/foundation.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    $(document).foundation();
+
+    // Sample data for the line chart
+    var data = {
+      labels: ["January", "February", "March", "April", "May"],
+      datasets: [{
+        label: 'Monthly Data',
+        data: [50, 70, 40, 90, 60],
+        fill: false,
+        borderColor: 'rgba(75, 192, 192, 1)',
+        borderWidth: 2,
+        pointRadius: 5, // Size of the data points
+        pointHoverRadius: 7, // Size of the data points on hover
+      }]
+    };
+
+    // Chart options
+    var options = {
+      scales: {
+        x: {
+          type: 'linear',
+          position: 'bottom'
+        },
+        y: {
+          beginAtZero: true
+        }
+      }
+    };
+
+    // Get the canvas element and create the line chart
+    var ctx = document.getElementById('lineChart').getContext('2d');
+    var myLineChart = new Chart(ctx, {
+      type: 'line',
+      data: data,
+      options: options
+    });
+  </script>
+
+
+
+  <script>
+    // Sample data for the bar chart
+    var data = {
+      labels: ["January", "February", "March", "April", "May"],
+      datasets: [{
+        label: 'gemaakte opdrachten',
+        data: [50, 70, 40, 90, 60],
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        borderColor: 'rgba(75, 192, 192, 1)',
+        borderWidth: 1
+      }]
+    };
+
+    // Chart options
+    var options = {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    };
+
+    // Get the canvas element and create the bar chart
+    var ctx = document.getElementById('barChart').getContext('2d');
+    var myBarChart = new Chart(ctx, {
+      type: 'bar',
+      data: data,
+      options: options
+    });
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.6.3/js/foundation.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
+
+</body>
+
+</html>
